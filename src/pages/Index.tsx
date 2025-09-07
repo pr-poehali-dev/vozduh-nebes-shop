@@ -7,11 +7,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import Icon from '@/components/ui/icon';
+import SplitSystemsSection from '@/components/SplitSystemsSection';
 
 const Index = () => {
   const [cartItems, setCartItems] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [priceRange, setPriceRange] = useState('all');
+  const [activeSection, setActiveSection] = useState('main');
 
   const categories = [
     { id: 'all', name: 'Все товары' },
@@ -103,6 +105,80 @@ const Index = () => {
     setCartItems([...cartItems, product]);
   };
 
+  if (activeSection === 'split-systems') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-background to-muted">
+        {/* Header */}
+        <header className="bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+          <div className="container mx-auto px-4 py-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  VozduhNebes
+                </h1>
+                <nav className="hidden md:flex space-x-6">
+                  <button 
+                    onClick={() => setActiveSection('main')} 
+                    className="text-foreground hover:text-primary transition-colors"
+                  >
+                    Главная
+                  </button>
+                  <button 
+                    onClick={() => setActiveSection('split-systems')} 
+                    className="text-primary font-medium"
+                  >
+                    Сплит-системы
+                  </button>
+                  <a href="#delivery" className="text-foreground hover:text-primary transition-colors">Доставка</a>
+                  <a href="#contacts" className="text-foreground hover:text-primary transition-colors">Контакты</a>
+                </nav>
+              </div>
+              <div className="flex items-center space-x-4">
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <Button variant="outline" size="icon" className="relative">
+                      <Icon name="ShoppingCart" className="h-4 w-4" />
+                      {cartItems.length > 0 && (
+                        <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 text-xs">
+                          {cartItems.length}
+                        </Badge>
+                      )}
+                    </Button>
+                  </SheetTrigger>
+                  <SheetContent>
+                    <SheetHeader>
+                      <SheetTitle>Корзина ({cartItems.length})</SheetTitle>
+                    </SheetHeader>
+                    <div className="mt-4">
+                      {cartItems.length === 0 ? (
+                        <p className="text-muted-foreground">Корзина пуста</p>
+                      ) : (
+                        <div className="space-y-4">
+                          {cartItems.map((item, index) => (
+                            <div key={index} className="flex items-center space-x-4 border-b pb-4">
+                              <img src={item.image} alt={item.name} className="h-16 w-16 object-cover rounded" />
+                              <div className="flex-1">
+                                <h4 className="font-medium">{item.name}</h4>
+                                <p className="text-primary font-semibold">{item.price.toLocaleString()} ₽</p>
+                              </div>
+                            </div>
+                          ))}
+                          <Button className="w-full">Оформить заказ</Button>
+                        </div>
+                      )}
+                    </div>
+                  </SheetContent>
+                </Sheet>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <SplitSystemsSection onAddToCart={addToCart} />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-muted">
       {/* Header */}
@@ -114,8 +190,18 @@ const Index = () => {
                 VozduhNebes
               </h1>
               <nav className="hidden md:flex space-x-6">
-                <a href="#" className="text-foreground hover:text-primary transition-colors">Главная</a>
-                <a href="#catalog" className="text-foreground hover:text-primary transition-colors">Каталог</a>
+                <button 
+                  onClick={() => setActiveSection('main')} 
+                  className={`transition-colors ${activeSection === 'main' ? 'text-primary' : 'text-foreground hover:text-primary'}`}
+                >
+                  Главная
+                </button>
+                <button 
+                  onClick={() => setActiveSection('split-systems')} 
+                  className={`transition-colors ${activeSection === 'split-systems' ? 'text-primary' : 'text-foreground hover:text-primary'}`}
+                >
+                  Сплит-системы
+                </button>
                 <a href="#delivery" className="text-foreground hover:text-primary transition-colors">Доставка</a>
                 <a href="#contacts" className="text-foreground hover:text-primary transition-colors">Контакты</a>
               </nav>
