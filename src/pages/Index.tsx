@@ -17,79 +17,184 @@ const Index = () => {
 
   const categories = [
     { id: 'all', name: 'Все товары' },
-    { id: 'electronics', name: 'Электроника' },
-    { id: 'clothing', name: 'Одежда' },
-    { id: 'home', name: 'Дом и сад' },
-    { id: 'sports', name: 'Спорт' },
-    { id: 'books', name: 'Книги' }
+    { id: 'conditioners', name: 'Кондиционеры' },
+    { id: 'heaters', name: 'Обогреватели' },
+    { id: 'water-heaters', name: 'Водонагреватели' },
+    { id: 'ventilation', name: 'Вентиляция' },
+    { id: 'accessories', name: 'Аксессуары' }
   ];
 
   const products = [
+    // Кондиционеры
     {
       id: 1,
-      name: 'Смартфон Galaxy Pro',
-      price: 45990,
-      originalPrice: 52990,
-      category: 'electronics',
-      rating: 4.8,
-      reviews: 124,
-      image: '/img/033adce1-d8a2-4bc9-b863-5a591f530012.jpg',
-      badge: 'Хит продаж'
+      name: 'Daikin FTXS25K Emura',
+      price: 85900,
+      originalPrice: 95900,
+      category: 'conditioners',
+      rating: 4.9,
+      reviews: 156,
+      image: '/img/e6790eb9-5b04-467b-a84d-333351723ce8.jpg',
+      badge: 'Премиум',
+      brand: 'Daikin',
+      power: '9000 BTU',
+      area: '25 м²'
     },
     {
       id: 2,
-      name: 'Куртка зимняя Premium',
-      price: 8990,
-      originalPrice: 12990,
-      category: 'clothing',
-      rating: 4.6,
+      name: 'LG Artcool Gallery A12FR',
+      price: 65900,
+      originalPrice: 75900,
+      category: 'conditioners',
+      rating: 4.7,
       reviews: 89,
-      image: '/img/033adce1-d8a2-4bc9-b863-5a591f530012.jpg',
-      badge: 'Скидка'
+      image: '/img/e6790eb9-5b04-467b-a84d-333351723ce8.jpg',
+      badge: 'Хит продаж',
+      brand: 'LG',
+      power: '12000 BTU',
+      area: '35 м²'
     },
     {
       id: 3,
-      name: 'Кофемашина Deluxe',
-      price: 23990,
-      originalPrice: 29990,
-      category: 'home',
-      rating: 4.9,
-      reviews: 156,
-      image: '/img/033adce1-d8a2-4bc9-b863-5a591f530012.jpg',
-      badge: 'Новинка'
+      name: 'Samsung Wind-Free Comfort AR09',
+      price: 58900,
+      originalPrice: 68900,
+      category: 'conditioners',
+      rating: 4.6,
+      reviews: 203,
+      image: '/img/e6790eb9-5b04-467b-a84d-333351723ce8.jpg',
+      badge: 'Новинка',
+      brand: 'Samsung',
+      power: '9000 BTU',
+      area: '25 м²'
     },
+    // Обогреватели
     {
       id: 4,
-      name: 'Кроссовки спортивные',
-      price: 6990,
-      originalPrice: 8990,
-      category: 'sports',
-      rating: 4.7,
-      reviews: 67,
-      image: '/img/033adce1-d8a2-4bc9-b863-5a591f530012.jpg',
-      badge: null
+      name: 'Electrolux EOH/M-6157',
+      price: 8900,
+      originalPrice: 10900,
+      category: 'heaters',
+      rating: 4.5,
+      reviews: 124,
+      image: '/img/a089efcc-c4a9-4255-bcdd-8a9d998bb8ce.jpg',
+      badge: 'Скидка',
+      brand: 'Electrolux',
+      power: '1500 Вт',
+      area: '15 м²'
     },
     {
       id: 5,
-      name: 'Книга "Успех в бизнесе"',
-      price: 1290,
-      originalPrice: 1590,
-      category: 'books',
-      rating: 4.5,
-      reviews: 43,
-      image: '/img/033adce1-d8a2-4bc9-b863-5a591f530012.jpg',
-      badge: null
+      name: 'Ballu BFH/S-04',
+      price: 3490,
+      originalPrice: 4290,
+      category: 'heaters',
+      rating: 4.3,
+      reviews: 87,
+      image: '/img/a089efcc-c4a9-4255-bcdd-8a9d998bb8ce.jpg',
+      badge: null,
+      brand: 'Ballu',
+      power: '400 Вт',
+      area: '4 м²'
     },
     {
       id: 6,
-      name: 'Наушники Wireless Pro',
-      price: 12990,
-      originalPrice: 15990,
-      category: 'electronics',
+      name: 'Noirot Spot E-3 Plus 1000',
+      price: 12900,
+      originalPrice: 15900,
+      category: 'heaters',
       rating: 4.8,
-      reviews: 203,
+      reviews: 67,
+      image: '/img/a089efcc-c4a9-4255-bcdd-8a9d998bb8ce.jpg',
+      badge: 'Премиум',
+      brand: 'Noirot',
+      power: '1000 Вт',
+      area: '10 м²'
+    },
+    // Водонагреватели
+    {
+      id: 7,
+      name: 'Ariston PRO1 R ABS 80 V',
+      price: 18900,
+      originalPrice: 22900,
+      category: 'water-heaters',
+      rating: 4.6,
+      reviews: 145,
+      image: '/img/a089efcc-c4a9-4255-bcdd-8a9d998bb8ce.jpg',
+      badge: 'Хит продаж',
+      brand: 'Ariston',
+      volume: '80 л',
+      power: '1500 Вт'
+    },
+    {
+      id: 8,
+      name: 'Thermex Champion Silver',
+      price: 15900,
+      originalPrice: 18900,
+      category: 'water-heaters',
+      rating: 4.4,
+      reviews: 98,
+      image: '/img/a089efcc-c4a9-4255-bcdd-8a9d998bb8ce.jpg',
+      badge: null,
+      brand: 'Thermex',
+      volume: '50 л',
+      power: '2000 Вт'
+    },
+    // Вентиляция
+    {
+      id: 9,
+      name: 'Soler&Palau Silent-100 CZ',
+      price: 2890,
+      originalPrice: 3590,
+      category: 'ventilation',
+      rating: 4.7,
+      reviews: 156,
+      image: '/img/c6acb953-be5b-4c09-b83e-fb0f7b3ff509.jpg',
+      badge: 'Тихий',
+      brand: 'Soler&Palau',
+      airflow: '95 м³/ч',
+      noise: '26 дБ'
+    },
+    {
+      id: 10,
+      name: 'Vents 100 Quiet',
+      price: 1890,
+      originalPrice: 2390,
+      category: 'ventilation',
+      rating: 4.2,
+      reviews: 89,
+      image: '/img/c6acb953-be5b-4c09-b83e-fb0f7b3ff509.jpg',
+      badge: null,
+      brand: 'Vents',
+      airflow: '97 м³/ч',
+      noise: '25 дБ'
+    },
+    // Аксессуары
+    {
+      id: 11,
+      name: 'Пульт универсальный KT-109II',
+      price: 990,
+      originalPrice: 1290,
+      category: 'accessories',
+      rating: 4.1,
+      reviews: 234,
       image: '/img/033adce1-d8a2-4bc9-b863-5a591f530012.jpg',
-      badge: 'Хит продаж'
+      badge: 'Универсальный',
+      brand: 'KT',
+      compatibility: '1000+ моделей'
+    },
+    {
+      id: 12,
+      name: 'Кронштейн настенный KBN-18',
+      price: 2490,
+      originalPrice: 2990,
+      category: 'accessories',
+      rating: 4.6,
+      reviews: 67,
+      image: '/img/033adce1-d8a2-4bc9-b863-5a591f530012.jpg',
+      badge: null,
+      brand: 'KBN',
+      weight: 'до 40 кг'
     }
   ];
 
@@ -339,7 +444,12 @@ const Index = () => {
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <h4 className="font-semibold text-lg mb-2">{product.name}</h4>
+                  <div className="mb-2">
+                    <h4 className="font-semibold text-lg mb-1">{product.name}</h4>
+                    {product.brand && (
+                      <p className="text-sm text-muted-foreground">{product.brand}</p>
+                    )}
+                  </div>
                   <div className="flex items-center mb-3">
                     <div className="flex items-center">
                       {[...Array(5)].map((_, i) => (
@@ -351,6 +461,17 @@ const Index = () => {
                       ))}
                     </div>
                     <span className="ml-2 text-sm text-muted-foreground">({product.reviews})</span>
+                  </div>
+                  
+                  {/* Product specs */}
+                  <div className="mb-3 text-sm text-muted-foreground">
+                    {product.power && <div>• Мощность: {product.power}</div>}
+                    {product.area && <div>• Площадь: {product.area}</div>}
+                    {product.volume && <div>• Объем: {product.volume}</div>}
+                    {product.airflow && <div>• Производительность: {product.airflow}</div>}
+                    {product.noise && <div>• Уровень шума: {product.noise}</div>}
+                    {product.weight && <div>• Макс. вес: {product.weight}</div>}
+                    {product.compatibility && <div>• Совместимость: {product.compatibility}</div>}
                   </div>
                   <div className="flex items-center justify-between mb-4">
                     <div>
